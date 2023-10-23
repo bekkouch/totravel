@@ -1,0 +1,69 @@
+<body>
+    <section class="form">
+        <h3>Answer the form </h3>
+        <form>
+            <!-- Destination -->
+            <span>Destination</span>
+            <mat-form-field>
+                <mat-label>Select an option</mat-label>
+                <mat-select disableRipple>
+                    <mat-option value="1">Option 1</mat-option>
+                    <mat-option value="2">Option 2</mat-option>
+                    <mat-option value="3">Option 3</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <!-- Date -->
+            <mat-divider></mat-divider>
+            <br>
+            <span>Date</span>
+            <mat-form-field>
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [formGroup]="travelForm" [rangePicker]="picker">
+                    <input matStartDate formControlName="start" placeholder="Start date">
+                    <input matEndDate formControlName="end" placeholder="End date">
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <!-- Travelers -->
+            <mat-divider></mat-divider>
+            <br>
+            <span>Travelers</span>
+            <mat-form-field>
+                <mat-label>Number of Travelers</mat-label>
+                <input matInput formControlName="nbrTravelers" value="Sushi">
+            </mat-form-field>
+            <!-- environment -->
+            <mat-divider></mat-divider>
+            <br>
+            <span>Environment</span>
+            <mat-form-field>
+                <mat-label>Select an option</mat-label>
+                <mat-select disableRipple>
+                    <mat-option value="1">Option 1</mat-option>
+                    <mat-option value="2">Option 2</mat-option>
+                    <mat-option value="3">Option 3</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <!-- transportation -->
+            <mat-divider></mat-divider>
+            <br>
+            <span>Transportation</span>
+            <mat-form-field>
+                <mat-label>Select an option</mat-label>
+                <mat-select disableRipple>
+                    <mat-option value="1">Option 1</mat-option>
+                    <mat-option value="2">Option 2</mat-option>
+                    <mat-option value="3">Option 3</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" routerLink="/results">
+            Show me my todo lists
+        </button>
+    </section>
+    <section class="chatbot">
+        <app-chatbot></app-chatbot>
+    </section>
+</body>
