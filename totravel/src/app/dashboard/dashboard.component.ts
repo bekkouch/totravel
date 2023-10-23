@@ -10,8 +10,10 @@ export class DashboardComponent implements OnChanges{
   travelForm = new FormGroup({
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
-    slider: new FormControl(),
     nbrTravelers: new FormControl(),
+    transport: new FormControl(),
+    environment: new FormControl(),
+    destination: new FormControl(),
   });
 
   ngOnChanges(changes: SimpleChanges) {
@@ -24,5 +26,12 @@ export class DashboardComponent implements OnChanges{
     }
 
     return `${value}`;
+  }
+  submit() {
+    console.log(this.travelForm.value);
+    // console.log( Math.abs(this.travelForm.value.end.getDay().toString() - this.travelForm.value.start);
+    const timeDiff = Number(this.travelForm.value.end?.getTime()) - Number(this.travelForm.value.start?.getTime())
+    const daysDiff = timeDiff / (1000 * 3600 * 24);
+    console.log( daysDiff);
   }
 }
